@@ -1,10 +1,31 @@
 ---
-Language:        Cpp
-# BasedOnStyle:  Chromium
-#
+Language: Cpp
+# BasedOnStyle: Chromium
 
-IndentWidth:    4
-TabWidth:       4
+# Hotly debated despite being uninteresting
+ColumnLimit: 80
+IndentWidth: 4
+TabWidth: 4
+
+# Includes and using
+IncludeBlocks: Preserve
+IncludeCategories:
+  - Regex: '^<ext/.*\.h>'
+    Priority: 2
+    SortPriority: 0
+  - Regex: '^<.*\.h>'
+    Priority: 1
+    SortPriority: 0
+  - Regex: '^<.*'
+    Priority: 2
+    SortPriority: 0
+  - Regex: '.*'
+    Priority: 3
+    SortPriority: 0
+IncludeIsMainRegex: '([-_](test|unittest))?$'
+IncludeIsMainSourceRegex: ''
+SortIncludes: true
+SortUsingDeclarations: true
 
 AccessModifierOffset: -4
 AlignAfterOpenBracket: Align
@@ -32,26 +53,26 @@ AlwaysBreakTemplateDeclarations: Yes
 BinPackArguments: true
 BinPackParameters: false
 BraceWrapping:
-  AfterCaseLabel:  false
-  AfterClass:      false
-  AfterControlStatement: Never
-  AfterEnum:       false
-  AfterFunction:   false
-  AfterNamespace:  false
-  AfterObjCDeclaration: false
-  AfterStruct:     false
-  AfterUnion:      false
-  AfterExternBlock: false
-  BeforeCatch:     false
-  BeforeElse:      false
-  BeforeLambdaBody: false
-  BeforeWhile:     false
-  IndentBraces:    false
-  SplitEmptyFunction: true
-  SplitEmptyRecord: true
-  SplitEmptyNamespace: true
+    AfterCaseLabel: false
+    AfterClass: false
+    AfterControlStatement: Never
+    AfterEnum: false
+    AfterFunction: false
+    AfterNamespace: false
+    AfterObjCDeclaration: false
+    AfterStruct: false
+    AfterUnion: false
+    AfterExternBlock: false
+    BeforeCatch: false
+    BeforeElse: false
+    BeforeLambdaBody: false
+    BeforeWhile: false
+    IndentBraces: false
+    SplitEmptyFunction: true
+    SplitEmptyRecord: true
+    SplitEmptyNamespace: true
 BreakBeforeBinaryOperators: None
-BreakBeforeBraces: Attach
+BreakBeforeBraces: Linux
 BreakBeforeInheritanceComma: false
 BreakInheritanceList: BeforeColon
 BreakBeforeTernaryOperators: true
@@ -59,8 +80,7 @@ BreakConstructorInitializersBeforeComma: false
 BreakConstructorInitializers: BeforeColon
 BreakAfterJavaFieldAnnotations: false
 BreakStringLiterals: true
-ColumnLimit:     80
-CommentPragmas:  '^ IWYU pragma:'
+CommentPragmas: '^ IWYU pragma:'
 CompactNamespaces: false
 ConstructorInitializerAllOnOneLineOrOnePerLine: true
 ConstructorInitializerIndentWidth: 4
@@ -68,29 +88,13 @@ ContinuationIndentWidth: 4
 Cpp11BracedListStyle: true
 DeriveLineEnding: true
 DerivePointerAlignment: false
-DisableFormat:   false
+DisableFormat: false
 ExperimentalAutoDetectBinPacking: false
 FixNamespaceComments: true
 ForEachMacros:
   - foreach
   - Q_FOREACH
   - BOOST_FOREACH
-IncludeBlocks:   Preserve
-IncludeCategories:
-  - Regex:           '^<ext/.*\.h>'
-    Priority:        2
-    SortPriority:    0
-  - Regex:           '^<.*\.h>'
-    Priority:        1
-    SortPriority:    0
-  - Regex:           '^<.*'
-    Priority:        2
-    SortPriority:    0
-  - Regex:           '.*'
-    Priority:        3
-    SortPriority:    0
-IncludeIsMainRegex: '([-_](test|unittest))?$'
-IncludeIsMainSourceRegex: ''
 IndentCaseLabels: true
 IndentCaseBlocks: false
 IndentGotoLabels: true
@@ -102,7 +106,7 @@ JavaScriptQuotes: Leave
 JavaScriptWrapImports: true
 KeepEmptyLinesAtTheStartOfBlocks: false
 MacroBlockBegin: ''
-MacroBlockEnd:   ''
+MacroBlockEnd: ''
 MaxEmptyLinesToKeep: 1
 NamespaceIndentation: None
 PenaltyBreakAssignment: 2
@@ -115,7 +119,7 @@ PenaltyExcessCharacter: 1000000
 PenaltyReturnTypeOnItsOwnLine: 200
 PointerAlignment: Left
 RawStringFormats:
-  - Language:        Cpp
+  - Language: Cpp
     Delimiters:
       - cc
       - CC
@@ -125,8 +129,8 @@ RawStringFormats:
       - 'c++'
       - 'C++'
     CanonicalDelimiter: ''
-    BasedOnStyle:    google
-  - Language:        TextProto
+    BasedOnStyle: google
+  - Language: TextProto
     Delimiters:
       - pb
       - PB
@@ -143,10 +147,8 @@ RawStringFormats:
       - ParseTestProto
       - ParsePartialTestProto
     CanonicalDelimiter: ''
-    BasedOnStyle:    google
-ReflowComments:  true
-SortIncludes:    true
-SortUsingDeclarations: true
+    BasedOnStyle: google
+ReflowComments: true
 SpaceAfterCStyleCast: false
 SpaceAfterLogicalNot: false
 SpaceAfterTemplateKeyword: true
@@ -159,19 +161,19 @@ SpaceBeforeRangeBasedForLoopColon: true
 SpaceInEmptyBlock: false
 SpaceInEmptyParentheses: false
 SpacesBeforeTrailingComments: 2
-SpacesInAngles:  false
+SpacesInAngles: false
 SpacesInConditionalStatement: false
 SpacesInContainerLiterals: true
 SpacesInCStyleCastParentheses: false
 SpacesInParentheses: false
 SpacesInSquareBrackets: false
 SpaceBeforeSquareBrackets: false
-Standard:        Auto
+Standard: Auto
 StatementMacros:
   - Q_UNUSED
   - QT_REQUIRE_VERSION
-UseCRLF:    false
-UseTab:     Never
+UseCRLF: false
+UseTab: Never
 WhitespaceSensitiveMacros:
   - STRINGIZE
   - PP_STRINGIZE
