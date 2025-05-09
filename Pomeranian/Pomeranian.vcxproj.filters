@@ -16,6 +16,9 @@
     <Filter Include="Fichiers sources\Reader">
       <UniqueIdentifier>{f0eb0c97-87ff-465e-b46b-ef4c887b5209}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Fichiers sources\Syntax">
+      <UniqueIdentifier>{045b0870-cf23-41b7-9ecf-55c742a47efe}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h">
@@ -30,6 +33,12 @@
     <ClInclude Include="Reader\reader.h">
       <Filter>Fichiers sources\Reader</Filter>
     </ClInclude>
+    <ClInclude Include="error.h">
+      <Filter>Fichiers sources</Filter>
+    </ClInclude>
+    <ClInclude Include="Syntax\location.h">
+      <Filter>Fichiers sources\Syntax</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Pomeranian.cpp">
@@ -40,6 +49,9 @@
     </ClCompile>
     <ClCompile Include="Reader\reader.cpp">
       <Filter>Fichiers sources\Reader</Filter>
+    </ClCompile>
+    <ClCompile Include="error.cpp">
+      <Filter>Fichiers sources</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
