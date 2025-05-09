@@ -1,5 +1,5 @@
 #include "reader.h"
 
-void Reader::Read()
-{
-}
+void Reader::ReadFile() {}
+
+void Reader::Run() {}

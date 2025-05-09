@@ -3,5 +3,9 @@
 class Reader
 {
 public:
-    void Read();
+    void ReadFile();
+    // void RunPrompt();
+
+private:
+    void Run();
 };
