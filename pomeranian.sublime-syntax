@@ -1,0 +1,54 @@
+%YAML 1.2
+---
+file_extensions:
+  - pom
+scope: source.pom
+variables:
+  left_: '[\(\[\{]'
+  right_: '[\)\]\}]'
+contexts:
+  main:
+    # Strings begin and end with quotes, and use backslashes as an escape
+    # character
+    - match: '"'
+      scope: punctuation.definition.string.begin.pom
+      push: double_quoted_string
+
+    # Comments begin with a ';' and finish at the end of the line
+    - match: ';'
+      scope: punctuation.definition.comment.pom
+      push: line_comment
+    # TODO #;
+    # TODO #| |#
+    - match: '{{left_}}'
+      scope: constant.numeric.pom
+    - match: '{{right_}}'
+      scope: constant.numeric.pom
+
+    # Keywords are if, else for and while.
+    # Note that blackslashes don't need to be escaped within single quoted
+    # strings in YAML. When using single quoted strings, only single quotes
+    # need to be escaped: this is done by using two single quotes next to each
+    # other.
+    - match: '\b(if|else|for|while)\b'
+      scope: keyword.control.pom
+
+    - match: '\b(define|deftype|defenum|new)\b'
+      scope: keyword.definition.pom
+
+    # Numbers
+    - match: '\b(-)?[0-9.]+\b'
+      scope: constant.numeric.pom
+
+  double_quoted_string:
+    - meta_scope: string.quoted.double.pom
+    - match: '\\.'
+      scope: constant.character.escape.pom
+    - match: '"'
+      scope: punctuation.definition.string.end.pom
+      pop: true
+
+  line_comment:
+    - meta_scope: comment.line.pom
+    - match: $
+      pop: true
