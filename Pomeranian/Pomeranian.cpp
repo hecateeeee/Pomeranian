@@ -1,6 +1,7 @@
 #include "framework.h"
 #include "pch.h"
 
-namespace Pom {
+namespace Pom
+{
 void fnPomeranian() {}
 }  // namespace Pom
